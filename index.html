@@ -227,9 +227,8 @@
             color: #1e3c72;
         }
         
-        .print-button {
+        .print-button, .download-button {
             position: fixed;
-            bottom: 30px;
             right: 30px;
             background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             color: white;
@@ -246,9 +245,23 @@
             letter-spacing: 0.5px;
         }
         
-        .print-button:hover {
+        .print-button {
+            bottom: 90px;
+        }
+        
+        .download-button {
+            bottom: 30px;
+            background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
+            color: #1e3c72;
+        }
+        
+        .print-button:hover, .download-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(30, 60, 114, 0.4);
+        }
+        
+        .download-button:hover {
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
         }
         
         @media print {
@@ -263,8 +276,8 @@
                 border: none;
             }
             
-            .print-button {
-                display: none;
+            .print-button, .download-button {
+                display: none !important;
             }
             
             .header::after {
@@ -482,5 +495,27 @@
     </div>
     
     <button class="print-button" onclick="window.print()">📄 Print Resume</button>
+    <button class="download-button" onclick="downloadResume()">⬇️ Download PDF</button>
+    
+    <script>
+        function downloadResume() {
+            // Create a clean version for PDF generation
+            const printButton = document.querySelector('.print-button');
+            const downloadButton = document.querySelector('.download-button');
+            
+            // Hide buttons temporarily
+            printButton.style.display = 'none';
+            downloadButton.style.display = 'none';
+            
+            // Use browser's print dialog to save as PDF
+            window.print();
+            
+            // Show buttons again after a short delay
+            setTimeout(() => {
+                printButton.style.display = 'block';
+                downloadButton.style.display = 'block';
+            }, 1000);
+        }
+    </script>
 </body>
 </html>
