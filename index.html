@@ -509,16 +509,36 @@
     
     <button class="print-button" onclick="window.print()">📄 Print Resume</button>
     <button class="download-button" onclick="downloadResume()">⬇️ Download PDF</button>
+    <button class="share-button" onclick="shareViaEmail()">📧 Share Resume</button>
     
     <script>
         function downloadResume() {
             // Use browser's print dialog to save as PDF
             window.print();
         }
+        
+        function shareViaEmail() {
+            const subject = encodeURIComponent("Check out this talented operations leader - Colin Pluta");
+            const body = encodeURIComponent(`I came across Colin Pluta's resume and thought he might be a great fit for your organization.
+
+Colin has an incredible story - rising from fry cook to Area Director overseeing 5-7 locations and $15M in revenue at Applebee's over 12 years. He's now successfully transformed an underperforming Lovesac showroom while also running entrepreneurial ventures.
+
+Key highlights:
+• Reduced staff turnover by 25% across multiple locations
+• Transformed worst-performing location into #1 for sales growth
+• Expertise in both traditional operations and modern technology/AI tools
+• Proven success in both corporate and entrepreneurial environments
+
+You can view his resume here: ${window.location.href}
+
+Best regards`);
+            
+            window.location.href = `mailto:?subject=${subject}&body=${body}`;
+        }
     </script>
     
     <style>
-        .print-button, .download-button {
+        .print-button, .download-button, .share-button {
             position: fixed;
             right: 30px;
             background: var(--primary);
@@ -537,7 +557,12 @@
         }
         
         .print-button {
+            bottom: 150px;
+        }
+        
+        .share-button {
             bottom: 90px;
+            background: var(--accent);
         }
         
         .download-button {
@@ -545,19 +570,19 @@
             background: var(--secondary);
         }
         
-        .print-button:hover, .download-button:hover {
+        .print-button:hover, .download-button:hover, .share-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(15, 23, 42, 0.4);
         }
         
         @media print {
-            .print-button, .download-button {
+            .print-button, .download-button, .share-button {
                 display: none !important;
             }
         }
         
         @media (max-width: 768px) {
-            .print-button, .download-button {
+            .print-button, .download-button, .share-button {
                 padding: 12px 20px;
                 font-size: 12px;
             }
