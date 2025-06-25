@@ -5,36 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Colin R. Pluta - Operations Leader</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap');
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         
+        :root {
+            --primary: #1a365d;
+            --secondary: #2563eb;
+            --accent: #f59e0b;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --border: #e5e7eb;
+        }
+        
         body {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            line-height: 1.7;
-            color: #2c3e50;
-            background: #f8f9fa;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
             min-height: 100vh;
-            padding: 40px 20px;
+            padding: 20px;
         }
         
         .resume-container {
             max-width: 900px;
             margin: 0 auto;
             background: white;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-radius: 16px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
             overflow: hidden;
-            border: 1px solid #e9ecef;
+            position: relative;
+        }
+        
+        .resume-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
         }
         
         .header {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            padding: 50px 40px;
             text-align: center;
+            padding: 40px 30px 30px;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
             position: relative;
         }
         
@@ -42,228 +63,295 @@
             content: '';
             position: absolute;
             bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, #d4af37 0%, #ffd700 50%, #d4af37 100%);
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 2px;
         }
         
         .header h1 {
-            font-size: 2.8em;
-            font-weight: 400;
-            margin-bottom: 12px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            font-family: 'Playfair Display', serif;
+            font-size: 36pt;
+            margin-bottom: 10px;
+            color: var(--primary);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            position: relative;
+            display: inline-block;
         }
         
         .contact-info {
-            font-size: 1.1em;
-            opacity: 0.95;
-            font-weight: 300;
-            letter-spacing: 0.5px;
+            font-size: 11pt;
+            color: var(--text-light);
+            font-weight: 400;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-info span {
+            position: relative;
+            padding: 0 15px;
+        }
+        
+        .contact-info span:not(:last-child)::after {
+            content: '|';
+            position: absolute;
+            right: -8px;
+            color: var(--border);
         }
         
         .contact-info a {
-            color: #ffd700;
+            color: var(--secondary);
             text-decoration: none;
-            transition: color 0.3s ease;
-            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
         }
         
         .contact-info a:hover {
-            color: #d4af37;
-            border-bottom: 1px solid #d4af37;
+            color: var(--accent);
         }
         
         .content {
-            padding: 50px;
+            padding: 40px;
         }
         
         .section {
-            margin-bottom: 45px;
+            margin-bottom: 35px;
         }
         
         .section h2 {
-            color: #1e3c72;
-            font-size: 1.6em;
-            margin-bottom: 25px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #1e3c72;
-            position: relative;
-            font-weight: 600;
+            font-size: 14pt;
+            color: var(--primary);
+            margin-bottom: 15px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            font-weight: 700;
+            position: relative;
+            padding-left: 20px;
         }
         
-        .section h2::after {
+        .section h2::before {
             content: '';
             position: absolute;
-            bottom: -2px;
             left: 0;
-            width: 60px;
-            height: 2px;
-            background: #d4af37;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 20px;
+            background: var(--accent);
+            border-radius: 2px;
         }
         
         .professional-summary {
-            font-size: 1.15em;
+            font-size: 11pt;
             line-height: 1.8;
-            color: #4a5568;
-            background: #f7fafc;
-            padding: 30px;
-            border-radius: 6px;
-            border-left: 4px solid #1e3c72;
-            font-style: italic;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            padding: 20px 25px;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        .professional-summary strong {
+            color: var(--primary);
+            font-weight: 600;
         }
         
         .competencies {
-            display: flex;
-            gap: 40px;
-            margin-top: 20px;
-        }
-        
-        .competency-column {
-            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 15px;
         }
         
         .competency-item {
-            color: #4a5568;
-            font-weight: 500;
-            padding: 8px 0;
+            font-size: 10.5pt;
+            padding: 10px 15px;
+            background: var(--bg-light);
+            border-radius: 6px;
             position: relative;
-            padding-left: 15px;
-            margin-bottom: 8px;
+            padding-left: 30px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        
+        .competency-item:hover {
+            background: white;
+            border-color: var(--secondary);
+            transform: translateX(5px);
         }
         
         .competency-item::before {
-            content: '▪';
+            content: '⬥';
             position: absolute;
-            left: 0;
-            color: #d4af37;
-            font-weight: bold;
+            left: 12px;
+            color: var(--accent);
+            font-size: 10pt;
         }
         
         .job {
-            margin-bottom: 40px;
-            padding: 30px;
-            background: #fefefe;
-            border-radius: 6px;
-            border: 1px solid #e2e8f0;
+            margin-bottom: 25px;
+            padding: 25px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid var(--border);
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .job::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--secondary);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
         }
         
         .job:hover {
-            border-color: #1e3c72;
-            box-shadow: 0 6px 20px rgba(30, 60, 114, 0.1);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border-color: var(--secondary);
+        }
+        
+        .job:hover::before {
+            transform: scaleY(1);
         }
         
         .job-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             flex-wrap: wrap;
-            border-bottom: 1px solid #e2e8f0;
-            padding-bottom: 15px;
+            gap: 10px;
         }
         
         .job-title {
-            font-size: 1.4em;
-            font-weight: 600;
-            color: #1e3c72;
-            margin-bottom: 8px;
+            font-weight: 700;
+            font-size: 13pt;
+            color: var(--primary);
+            margin-bottom: 3px;
         }
         
         .company {
-            font-size: 1.15em;
-            color: #2d3748;
             font-weight: 500;
+            font-size: 11pt;
+            color: var(--text-dark);
         }
         
         .job-details {
-            color: #718096;
+            font-size: 10pt;
+            color: var(--text-light);
             font-style: italic;
-            font-size: 1em;
-            margin-top: 5px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .job-details::before {
+            content: '📍';
+            font-size: 12pt;
         }
         
         .achievements {
             list-style: none;
-            margin-top: 20px;
+            margin-left: 0;
+            font-size: 10.5pt;
+            line-height: 1.7;
         }
         
         .achievements li {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             padding-left: 25px;
             position: relative;
-            line-height: 1.7;
-            color: #4a5568;
+            color: var(--text-dark);
         }
         
         .achievements li::before {
-            content: '◆';
+            content: '→';
             position: absolute;
             left: 0;
-            color: #d4af37;
+            color: var(--accent);
             font-weight: bold;
-            font-size: 0.8em;
-            top: 0.2em;
+            font-size: 14pt;
         }
         
         .achievements strong {
-            color: #1e3c72;
+            color: var(--primary);
+            font-weight: 600;
+            background: linear-gradient(to right, var(--accent), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .bottom-section {
+            background: var(--bg-light);
+            padding: 20px 25px;
+            border-radius: 8px;
+            font-size: 10.5pt;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .bottom-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
+        }
+        
+        .bottom-section strong {
+            color: var(--primary);
             font-weight: 600;
         }
         
-        .volunteer, .education, .certifications {
-            background: #f7fafc;
-            padding: 25px;
-            border-radius: 6px;
-            border-left: 4px solid #d4af37;
-            color: #4a5568;
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 28pt;
+            }
+            
+            .contact-info {
+                font-size: 10pt;
+            }
+            
+            .contact-info span::after {
+                display: none;
+            }
+            
+            .content {
+                padding: 25px;
+            }
+            
+            .competencies {
+                grid-template-columns: 1fr;
+            }
+            
+            .job-header {
+                flex-direction: column;
+            }
         }
         
-        .certifications strong, .volunteer strong {
-            color: #1e3c72;
-        }
-        
-        .print-button, .download-button {
-            position: fixed;
-            right: 30px;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            border: none;
-            padding: 15px 25px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
-            box-shadow: 0 6px 20px rgba(30, 60, 114, 0.3);
-            transition: all 0.3s ease;
-            z-index: 1000;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        .print-button {
-            bottom: 90px;
-        }
-        
-        .download-button {
-            bottom: 30px;
-            background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
-            color: #1e3c72;
-        }
-        
-        .print-button:hover, .download-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(30, 60, 114, 0.4);
-        }
-        
-        .download-button:hover {
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
-        }
-        
+        /* Print Styles */
         @media print {
             body {
                 background: white;
@@ -273,86 +361,48 @@
             .resume-container {
                 box-shadow: none;
                 border-radius: 0;
-                border: none;
             }
             
-            .print-button, .download-button {
-                display: none !important;
-            }
-            
-            .header::after {
-                display: none;
+            .job:hover {
+                box-shadow: none;
             }
         }
         
-        @media (max-width: 768px) {
-            .header {
-                padding: 30px 20px;
-            }
-            
-            .header h1 {
-                font-size: 2.2em;
-            }
-            
-            .content {
-                padding: 30px 20px;
-            }
-            
-            .job-header {
-                flex-direction: column;
-            }
-            
-            .competencies {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            .competency-column {
-                flex: none;
-            }
-            
-            .job {
-                padding: 20px;
-            }
-        }
-        
-        /* Professional typography enhancements */
-        h1, h2, h3 {
-            font-family: 'Georgia', 'Times New Roman', serif;
-        }
-        
-        .section h2 {
-            font-size: 1.5em;
-        }
-        
-        .job-title {
-            font-family: 'Georgia', 'Times New Roman', serif;
-        }
-        
-        /* Subtle animation for professional feel */
-        .resume-container {
-            animation: fadeIn 1s ease-out;
-        }
-        
+        /* Loading Animation */
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(10px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
+        
+        .resume-container {
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        .section {
+            animation: fadeIn 0.8s ease-out;
+            animation-fill-mode: both;
+        }
+        
+        .section:nth-child(1) { animation-delay: 0.1s; }
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+        .section:nth-child(4) { animation-delay: 0.4s; }
     </style>
 </head>
 <body>
     <div class="resume-container">
         <div class="header">
-            <h1>Colin R. Pluta</h1>
+            <h1>COLIN R. PLUTA</h1>
             <div class="contact-info">
-                4428 South 67th Street, Greenfield, WI 53220<br>
-                414-255-5939 | <a href="mailto:Colinray0247@gmail.com">Colinray0247@gmail.com</a>
+                <span>4428 South 67th Street, Greenfield, WI 53220</span>
+                <span>414-255-5939</span>
+                <span><a href="mailto:Colinray0247@gmail.com">Colinray0247@gmail.com</a></span>
             </div>
         </div>
         
@@ -360,27 +410,19 @@
             <div class="section">
                 <h2>Professional Summary</h2>
                 <div class="professional-summary">
-                    <strong>Seasoned operations & e-commerce leader</strong> with 10+ years of experience, including an extraordinary rise from <strong>fry cook to Area Director</strong> overseeing 5 locations—demonstrating unparalleled work ethic, adaptability, and leadership development. Expert at reviving underperforming units, driving double-digit sales growth, and building high-performing teams in both brick-and-mortar and online ventures. Proven track record of slashing staff turnover by 25% through targeted retention programs, while launching and scaling niche brands (Musky Magnet Lures, Aqua Aquatiks). Skilled in strategic planning, process innovation, multi-unit management, and technology-enabled solutions that deliver consistent financial results.
+                    Operations & e-commerce leader with extraordinary rise from <strong>fry cook to Area Director</strong> overseeing 7 locations across 12 years at Applebee's. Expert at reviving underperforming units and building high-performing teams, with proven success slashing turnover by 25% and achieving 100% of sales goals. Serial entrepreneur who launched and scaled niche brands while maintaining excellence in multi-unit management and operational innovation.
                 </div>
             </div>
             
             <div class="section">
                 <h2>Core Competencies</h2>
                 <div class="competencies">
-                    <div class="competency-column">
-                        <div class="competency-item">Team Leadership & Development</div>
-                        <div class="competency-item">Multi-Unit Operations Management</div>
-                        <div class="competency-item">Strategic Planning & Execution</div>
-                        <div class="competency-item">Sales Growth & Performance Optimization</div>
-                        <div class="competency-item">Operational Excellence & Process Innovation</div>
-                    </div>
-                    <div class="competency-column">
-                        <div class="competency-item">Customer Experience Management</div>
-                        <div class="competency-item">E-commerce & Digital Marketing</div>
-                        <div class="competency-item">Technology Integration & API Development</div>
-                        <div class="competency-item">Financial Analysis & Budget Management</div>
-                        <div class="competency-item">Staff Retention & Culture Building</div>
-                    </div>
+                    <div class="competency-item">Multi-Unit Operations & P&L Management</div>
+                    <div class="competency-item">Strategic Planning & Process Innovation</div>
+                    <div class="competency-item">Team Development & Talent Pipeline Building</div>
+                    <div class="competency-item">E-commerce & Digital Marketing</div>
+                    <div class="competency-item">Turnaround Leadership & Performance Optimization</div>
+                    <div class="competency-item">Customer Experience & Culture Transformation</div>
                 </div>
             </div>
             
@@ -392,15 +434,12 @@
                         <div>
                             <div class="job-title">Showroom Manager</div>
                             <div class="company">Lovesac</div>
-                            <div class="job-details">Wauwatosa, WI | Oct 2024 – Present</div>
                         </div>
+                        <div class="job-details">Wauwatosa, WI | Oct 2024 – Present</div>
                     </div>
                     <ul class="achievements">
-                        <li>Assumed leadership of an underperforming showroom (declining sales, high turnover), restructured the team, rebuilt culture, and implemented new processes to drive performance.</li>
-                        <li>Hired and trained a high-performing sales team, yielding immediate gains in service levels, engagement, and accountability.</li>
-                        <li>Transformed the showroom into a top-performing location, consistently achieving <strong>100% of sales goals YTD</strong>.</li>
-                        <li>Led remodels (floor-plan optimization, product transitions, visual merchandising) with no disruption to sales.</li>
-                        <li>Established quote-tracking, KPI dashboards, and coaching frameworks to reinforce accountability and a customer-first mentality.</li>
+                        <li>Transformed underperforming showroom (declining sales, high turnover) into top performer achieving <strong>100% of sales goals YTD</strong> through team restructuring and culture rebuilding</li>
+                        <li>Executed remodels and product transitions with zero sales disruption while creating custom sales/traffic trackers and forecasting tools that drove immediate accountability gains</li>
                     </ul>
                 </div>
                 
@@ -409,17 +448,14 @@
                         <div>
                             <div class="job-title">Area Director</div>
                             <div class="company">Applebee's Neighborhood Grill & Bar</div>
-                            <div class="job-details">Wisconsin | Jul 2022 – Oct 2024</div>
                         </div>
+                        <div class="job-details">Wisconsin | Jul 2022 – Oct 2024</div>
                     </div>
                     <ul class="achievements">
-                        <li><strong>Rose from fry cook to Area Director</strong> in 8 years through exceptional performance, dedication, and continuous learning—overseeing 5 restaurant locations and 100+ team members.</li>
-                        <li>Implemented operational strategies across 5 locations, reducing staff turnover by <strong>25%</strong> through targeted retention initiatives informed by personal experience at every operational level.</li>
-                        <li>Oversaw regional staffing—hiring or promoting <strong>14 of 21 managers</strong>—leveraging deep understanding of frontline operations to identify and develop talent.</li>
-                        <li>Identified and mentored technical talent, sponsoring a cook's promotion to IT Lead and enhancing on-site systems support—demonstrating commitment to team member advancement.</li>
-                        <li>Mentored high-potential team members, resulting in <strong>4 promotions</strong> to GM roles (two within the area, two in other regions), applying lessons learned from personal career progression.</li>
-                        <li>Leveraged performance metrics (labor costs, COGS, guest satisfaction, sales) to drive continuous improvement across multi-unit operations.</li>
-                        <li>Led roll-out of new systems and initiatives, ensuring smooth adoption and compliance across all sites through hands-on leadership approach.</li>
+                        <li>Oversaw 7 locations and 200+ team members as Area Director, leveraging 12 years of progressive Applebee's experience from frontline to executive leadership</li>
+                        <li>Reduced staff turnover by <strong>25%</strong> across all locations through retention initiatives informed by frontline experience</li>
+                        <li>Mentored 4 team members to GM promotions and sponsored a cook's advancement to IT Lead, demonstrating commitment to developing talent at all levels</li>
+                        <li>Maintained operational excellence through metrics management (labor, COGS, satisfaction) and smooth system adoptions despite 3 leadership changes, providing crucial stability during transitions</li>
                     </ul>
                 </div>
                 
@@ -428,37 +464,27 @@
                         <div>
                             <div class="job-title">General Manager</div>
                             <div class="company">Applebee's Neighborhood Grill & Bar</div>
-                            <div class="job-details">West Milwaukee, WI | Feb 2019 – Jul 2022</div>
                         </div>
+                        <div class="job-details">West Milwaukee, WI | Feb 2019 – Jul 2022</div>
                     </div>
                     <ul class="achievements">
-                        <li><strong>Promoted from Cook to GM in just 6 years</strong>—an extraordinary career progression showcasing dedication, work ethic, and natural leadership abilities that caught executive attention.</li>
-                        <li>Led the top-performing location (Miller Park Way) for <strong>two consecutive years</strong>, achieving the region's highest sales growth through hands-on operational excellence.</li>
-                        <li>Awarded <strong>"Rookie of the Year" GM</strong> for outstanding performance in first management year—a testament to rapid skill development and leadership readiness.</li>
-                        <li>Built a strong team by promoting from within, advancing servers and cooks into management roles, drawing from personal experience of frontline-to-leadership advancement.</li>
-                        <li>Managed all restaurant operations—customer service, quality, compliance—with deep operational knowledge gained through every role in the restaurant.</li>
-                        <li>Controlled budgeting, forecasting, and expense management to deliver financial goals, applying ground-up understanding of cost centers and operational efficiency.</li>
+                        <li>Awarded <strong>"Rookie of the Year" GM</strong> for outstanding first-year performance after progressing through multiple roles over 6 years</li>
+                        <li>Transformed region's worst-performing location (Miller Park Way) into <strong>top performer for two consecutive years</strong>, achieving highest sales growth through operational excellence</li>
+                        <li>Built strong succession pipeline by promoting multiple servers and cooks into management team, while controlling budgets and expenses to consistently deliver financial goals</li>
                     </ul>
                 </div>
-            </div>
-            
-            <div class="section">
-                <h2>Entrepreneurial Ventures</h2>
                 
                 <div class="job">
                     <div class="job-header">
                         <div>
                             <div class="job-title">Founder & CEO</div>
                             <div class="company">Aqua Aquatiks</div>
-                            <div class="job-details">2025 – Present</div>
                         </div>
+                        <div class="job-details">2025 – Present</div>
                     </div>
                     <ul class="achievements">
-                        <li>Spearheaded pilot programs of novel shipping media and packaging concepts to challenge industry norms and improve coral-frag survival.</li>
-                        <li>Designed and implemented scalable production infrastructure for live-coral cultivation, including multi-tank rack systems and integrated plumbing layouts—boosting throughput and reliability.</li>
-                        <li>Developed and enforced robust quality-control protocols, establishing SOPs for water-chemistry testing and dosing (nitrate, phosphate, alkalinity) to ensure consistent product health.</li>
-                        <li>Led deployment of advanced environmental controls, programming automated lighting and flow regimes to optimize growth rates and operational efficiency.</li>
-                        <li>Managed vendor relationships and capital projects, overseeing equipment selection, installation, and commissioning on time and within budget.</li>
+                        <li>Designed scalable live-coral production infrastructure with automated environmental controls, establishing quality protocols that ensure consistent product health and operational efficiency</li>
+                        <li>Leveraged AI tools to develop e-commerce platform and automate business processes, while sourcing specialized equipment and pioneering innovative coral shipping methods</li>
                     </ul>
                 </div>
                 
@@ -467,55 +493,22 @@
                         <div>
                             <div class="job-title">Founder & Host</div>
                             <div class="company">Musky Magnet Lures</div>
-                            <div class="job-details">2015 – 2019</div>
                         </div>
+                        <div class="job-details">2015 – 2019</div>
                     </div>
                     <ul class="achievements">
-                        <li>Launched a specialized musky-fishing tackle brand, designing and marketing innovative lures for Midwest anglers.</li>
-                        <li>Created and hosted the "Musky Talk Mondays" podcast—one of the earliest in the niche—cultivating a dedicated listener community.</li>
-                        <li>Developed and maintained the brand's website and e-commerce portal (HTML/CSS, WordPress), driving direct-to-consumer sales through targeted digital outreach.</li>
+                        <li>Launched specialized tackle brand marketed through fishing expos and Facebook; created/hosted "Musky Talk Mondays" podcast (early niche entrant) cultivating dedicated community</li>
+                        <li>Built brand presence through strategic expo participation and social media engagement, establishing direct relationships with Midwest angling community</li>
                     </ul>
                 </div>
             </div>
             
             <div class="section">
-                <h2>Licenses & Certifications</h2>
-                <div class="certifications">
-                    <strong>ServSafe Certified</strong> • <strong>Licensed Bartender</strong> (Liquor license holder)
-                </div>
-            </div>
-            
-            <div class="section">
-                <h2>Volunteer Work</h2>
-                <div class="volunteer">
-                    <strong>Annual volunteer</strong>, Wisconsin Veterans Fishing Camp, Phillips, WI
+                <div class="bottom-section">
+                    <strong>ServSafe Certified</strong> | <strong>Licensed Bartender</strong> | Annual volunteer, Wisconsin Veterans Fishing Camp
                 </div>
             </div>
         </div>
     </div>
-    
-    <button class="print-button" onclick="window.print()">📄 Print Resume</button>
-    <button class="download-button" onclick="downloadResume()">⬇️ Download PDF</button>
-    
-    <script>
-        function downloadResume() {
-            // Create a clean version for PDF generation
-            const printButton = document.querySelector('.print-button');
-            const downloadButton = document.querySelector('.download-button');
-            
-            // Hide buttons temporarily
-            printButton.style.display = 'none';
-            downloadButton.style.display = 'none';
-            
-            // Use browser's print dialog to save as PDF
-            window.print();
-            
-            // Show buttons again after a short delay
-            setTimeout(() => {
-                printButton.style.display = 'block';
-                downloadButton.style.display = 'block';
-            }, 1000);
-        }
-    </script>
 </body>
 </html>
