@@ -506,5 +506,62 @@
             </div>
         </div>
     </div>
+    
+    <button class="print-button" onclick="window.print()">📄 Print Resume</button>
+    <button class="download-button" onclick="downloadResume()">⬇️ Download PDF</button>
+    
+    <script>
+        function downloadResume() {
+            // Use browser's print dialog to save as PDF
+            window.print();
+        }
+    </script>
+    
+    <style>
+        .print-button, .download-button {
+            position: fixed;
+            right: 30px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 6px 20px rgba(15, 23, 42, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .print-button {
+            bottom: 90px;
+        }
+        
+        .download-button {
+            bottom: 30px;
+            background: var(--secondary);
+        }
+        
+        .print-button:hover, .download-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(15, 23, 42, 0.4);
+        }
+        
+        @media print {
+            .print-button, .download-button {
+                display: none !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .print-button, .download-button {
+                padding: 12px 20px;
+                font-size: 12px;
+            }
+        }
+    </style>
 </body>
 </html>
