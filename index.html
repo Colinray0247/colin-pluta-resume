@@ -354,10 +354,45 @@
             .resume-container {
                 box-shadow: none;
                 border-radius: 0;
+                max-width: 100%;
             }
             
-            .job:hover {
-                box-shadow: none;
+            .button-container {
+                display: none !important;
+            }
+            
+            .competencies {
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 15px !important;
+                page-break-inside: avoid;
+            }
+            
+            .competency-item {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+            
+            .job {
+                page-break-inside: avoid;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+            }
+            
+            /* Tighten spacing for print */
+            .section {
+                margin-bottom: 20px;
+            }
+            
+            .job {
+                margin-bottom: 20px;
+                padding: 15px;
+            }
+            
+            .achievements li {
+                margin-bottom: 8px;
             }
         }
         
