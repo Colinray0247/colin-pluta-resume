@@ -391,7 +391,16 @@
             
             .section {
                 margin-bottom: 10px !important;
-                page-break-inside: avoid;
+            }
+            
+            /* Remove page-break-inside avoid for competencies section specifically */
+            .section:nth-child(2) {
+                page-break-inside: auto !important;
+            }
+            
+            /* Allow professional experience to start on page 1 if space */
+            .section:nth-child(3) {
+                page-break-before: auto !important;
             }
             
             .section h2 {
@@ -425,7 +434,6 @@
                 margin-bottom: 12px !important;
                 padding: 10px !important;
                 border: none !important;
-                page-break-inside: avoid;
             }
             
             .job-header {
