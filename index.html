@@ -291,29 +291,26 @@
             font-weight: 600;
         }
         
-        .bottom-section {
+        .certifications-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 11pt;
+            color: var(--text-dark);
+        }
+        
+        .cert-item {
+            padding: 8px 0;
+        }
+        
+        .personal-info {
+            font-size: 11pt;
+            line-height: 1.7;
+            color: var(--text-dark);
             background: var(--bg-light);
             padding: 20px 25px;
             border-radius: 8px;
-            font-size: 10.5pt;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .bottom-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
-        }
-        
-        .bottom-section strong {
-            color: var(--primary);
-            font-weight: 600;
+            border-left: 4px solid var(--accent);
         }
         
         /* Mobile Responsive */
@@ -402,11 +399,17 @@
             </div>
         </div>
         
+        <div class="button-container">
+            <button class="action-button print-button" onclick="window.print()">📄 Print Resume</button>
+            <button class="action-button share-button" onclick="shareViaEmail()">📧 Share Resume</button>
+            <button class="action-button download-button" onclick="downloadResume()">⬇️ Download PDF</button>
+        </div>
+        
         <div class="content">
             <div class="section">
                 <h2>Professional Summary</h2>
                 <div class="professional-summary">
-                    Operations leader with extraordinary rise from fry cook to Area Director overseeing 5-7 locations across 12 years at Applebee's. Adept at leveraging modern technology to amplify traditional management strengths, with proven success reducing turnover by 25% and driving operational excellence across multi-million dollar portfolios. Serial entrepreneur who launched and scaled niche brands while maintaining excellence in multi-unit management and operational innovation.
+                    Operations leader with extraordinary rise from fry cook to Area Director overseeing 5-7 locations across 12 years at Applebee's. Adept at leveraging modern technology to amplify traditional management strengths, with proven success reducing turnover by 25% and driving operational excellence across multi-million dollar portfolios. Serial entrepreneur who launched and scaled niche brands while maintaining excellence in multi-unit management and operational innovation. Positioned to deliver immediate impact in operations leadership roles requiring both strategic vision and practical execution.
                 </div>
             </div>
             
@@ -450,6 +453,7 @@
                     <ul class="achievements">
                         <li>Directed operations for 5-7 locations generating $15 million annually with 200+ team members, achieving 12-year progression from frontline to senior management in multi-unit operations</li>
                         <li>Delivered <strong>25% reduction in turnover</strong> across portfolio through data-driven retention strategies and leadership development programs informed by frontline experience</li>
+                        <li>Served dual role on IT team, partnering with VP, project manager, and system administrator to modernize outdated systems, managing network infrastructure across sites, and designating one location as technology sandbox for pilot programs</li>
                         <li>Developed talent pipeline resulting in 4 GM promotions and cross-functional advancement (operations to IT), building bench strength for sustainable growth</li>
                         <li>Maintained operational KPIs above company standards through 3 executive transitions, serving as stabilizing force while implementing new systems and processes enterprise-wide</li>
                     </ul>
@@ -500,16 +504,22 @@
             </div>
             
             <div class="section">
-                <div class="bottom-section">
-                    <strong>ServSafe Certified</strong> | <strong>Licensed Bartender</strong> | <strong>Community Involvement:</strong> Annual volunteer, Wisconsin Veterans Fishing Camp
+                <h2>Certifications & Licenses</h2>
+                <div class="certifications-list">
+                    <span class="cert-item">• ServSafe Certified</span>
+                    <span class="cert-item">• Licensed Bartender (Wisconsin)</span>
+                    <span class="cert-item">• Google IT Support Professional Certificate</span>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Personal & Community</h2>
+                <div class="personal-info">
+                    Proud father and Milwaukee-area homeowner committed to work-life integration and community involvement. Annual volunteer at Wisconsin Veterans Fishing Camp, combining passion for outdoor recreation with service to those who served. Avid angler and outdoor enthusiast who applies the patience and strategy of fishing to business leadership.
                 </div>
             </div>
         </div>
     </div>
-    
-    <button class="print-button" onclick="window.print()">📄 Print Resume</button>
-    <button class="download-button" onclick="downloadResume()">⬇️ Download PDF</button>
-    <button class="share-button" onclick="shareViaEmail()">📧 Share Resume</button>
     
     <script>
         function downloadResume() {
@@ -538,53 +548,52 @@ Best regards`);
     </script>
     
     <style>
-        .print-button, .download-button, .share-button {
-            position: fixed;
-            right: 30px;
-            background: var(--primary);
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px;
+            background: var(--bg-light);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .action-button {
+            background: var(--secondary);
             color: white;
             border: none;
-            padding: 15px 25px;
+            padding: 12px 24px;
             border-radius: 6px;
             cursor: pointer;
             font-size: 14px;
             font-weight: 600;
-            box-shadow: 0 6px 20px rgba(15, 23, 42, 0.3);
             transition: all 0.3s ease;
-            z-index: 1000;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         
-        .print-button {
-            bottom: 150px;
-        }
-        
-        .share-button {
-            bottom: 90px;
-            background: var(--accent);
-        }
-        
-        .download-button {
-            bottom: 30px;
-            background: var(--secondary);
-        }
-        
-        .print-button:hover, .download-button:hover, .share-button:hover {
+        .action-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(15, 23, 42, 0.4);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
         
         @media print {
-            .print-button, .download-button, .share-button {
+            .button-container {
                 display: none !important;
             }
         }
         
         @media (max-width: 768px) {
-            .print-button, .download-button, .share-button {
-                padding: 12px 20px;
-                font-size: 12px;
+            .button-container {
+                flex-direction: column;
+                padding: 15px;
+            }
+            
+            .action-button {
+                width: 100%;
+                justify-content: center;
             }
         }
     </style>
