@@ -116,6 +116,37 @@
             color: var(--accent);
         }
         
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px;
+            background: var(--bg-light);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .action-button {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .action-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
         .content {
             padding: 40px;
         }
@@ -341,6 +372,16 @@
             
             .job-header {
                 flex-direction: column;
+            }
+            
+            .button-container {
+                flex-direction: column;
+                padding: 15px;
+            }
+            
+            .action-button {
+                width: 100%;
+                justify-content: center;
             }
         }
         
@@ -703,63 +744,6 @@ Best regards`);
             
             window.location.href = `mailto:?subject=${subject}&body=${body}`;
         }
-            
-            window.location.href = `mailto:?subject=${subject}&body=${body}`;
-        }
-            
-            window.location.href = `mailto:?subject=${subject}&body=${body}`;
-        }
     </script>
-    
-    <style>
-        .button-container {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            padding: 20px;
-            background: var(--bg-light);
-            border-bottom: 1px solid var(--border);
-        }
-        
-        .action-button {
-            background: var(--secondary);
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .action-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-        
-        @media print {
-            .button-container {
-                display: none !important;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .button-container {
-                flex-direction: column;
-                padding: 15px;
-            }
-            
-            .action-button {
-                width: 100%;
-                justify-content: center;
-            }
-        }
-    </style>
 </body>
 </html>
